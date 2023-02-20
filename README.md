@@ -4,35 +4,39 @@ SonarQube Helm Chart
 About this Repo
 ----------------
 
-This is the Git repo of the SonarSource Helm Chart for [SonarQube](https://www.sonarqube.org/).  
-The actual chart can be found in the [charts](charts/sonarqube) directory and see the README of the chart for more information. 
+This is a cloned Git repo of the SonarSource Helm Chart for [SonarQube]:
+https://github.com/SonarSource/helm-chart-sonarqube/tree/master/charts/sonarqube
 
-Have Question or Feedback?
+Goal
+----------------
+
+The goal of this repo is to have Sonarqube installed on OCP4 (OpenShift Container Platform). As explained in Sonarqube documentation the helm chart is prepared to deploy on plain kubernetes but some changes need to be done in order to deploy on Openshift.
+
+Versions
+----------------
+
+OCP4 - Openshift Container Platform 4.12
+Sonarqube - SonarQube 9.9 LTS
+
+Prerrequisites
 --------------------------
 
-For support questions ("How do I?", "I got this error, why?", ...), please first read the [documentation](https://docs.sonarqube.org) and then head to the [SonarSource Community](https://community.sonarsource.com/c/help/sq/10). The answer to your question has likely already been answered! 🤓
+- OCP4 up and running.
 
-Be aware that this forum is a community, so the standard pleasantries ("Hi", "Thanks", ...) are expected. And if you don't get an answer to your thread, you should sit on your hands for at least three days before bumping it. Operators are not standing by. 😄
+Instructions
+--------------------------
 
+To install the chart:
 
-Contributing
-------------
+git clone https://github.com/anmiralles/sonarqube-ocp4.git
+cd ./sonarqube-ocp4/charts/sonarqube
+helm repo add sonarqube https://SonarSource.github.io/helm-chart-sonarqube
+helm repo update
+oc new-project sonarqube
+helm upgrade --install -f values.yaml -n sonarqube sonarqube ./
 
-If you would like to see a new feature, please create a new Community thread: ["Suggest new features"](https://community.sonarsource.com/c/suggestions/features).
+Changes to default helm chart
+--------------------------
 
-Please be aware that we are not actively looking for feature contributions. The truth is that it's extremely difficult for someone outside SonarSource to comply with our roadmap and expectations. Therefore, we typically only accept minor cosmetic changes and typo fixes.
+As showed per git diff:
 
-With that in mind, if you would like to submit a code contribution, please create a pull request for this repository. Please explain your motives to contribute this change: what problem you are trying to fix, what improvement you are trying to make.
-
-Willing to contribute to SonarSource products? We are looking for smart, passionate, and skilled people to help us build world-class code quality solutions. Have a look at our current [job offers here](https://www.sonarsource.com/company/jobs/)!
-
-Note of Thanks
---------------
-
-This chart was based on the great work done on the [Oteemo chart](https://github.com/Oteemo/charts/tree/master/charts/sonarqube). 
-We would like to thank everyone who contributed for their great work on this project.
-
-License
--------
-
-Licensed under the [MIT Licence](LICENSE)
