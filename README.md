@@ -39,6 +39,7 @@ Changes to default helm chart
 
 As showed per git diff:
 
+```bash
 diff --git a/charts/sonarqube/values.yaml b/charts/sonarqube/values.yaml
 index c5ddbc9..42947cd 100644
 --- a/charts/sonarqube/values.yaml
@@ -99,3 +100,4 @@ index c5ddbc9..42947cd 100644
    # name:
    # automountToken: false # default
    ## Annotations for the Service Account
+```
